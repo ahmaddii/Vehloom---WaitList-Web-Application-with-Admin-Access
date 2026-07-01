@@ -74,61 +74,40 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
- head: () => ({
-  meta: [
-    { charSet: "utf-8" },
-    { name: "viewport", content: "width=device-width, initial-scale=1" },
-
-    { title: "Vehloom | Where Creativity Blooms" },
-
-    {
-      name: "description",
-      content:
-        "Vehloom is the social platform for AI artists and creators. Share AI-generated artwork, discover inspiring creators, and grow your creative community.",
-    },
-
-    {
-      name: "keywords",
-      content:
-        "AI Art, AI Artists, AI Creator, Generative AI, Digital Art, Creative Community, AI Social Network",
-    },
-
-    { name: "author", content: "Vehloom" },
-
-    { property: "og:title", content: "Vehloom | Where Creativity Blooms" },
-
-    {
-      property: "og:description",
-      content:
-        "The social platform built for AI artists and creators.",
-    },
-
-    {
-      property: "og:url",
-      content: "https://vehloom.vercel.app/",
-    },
-
-    {
-      property: "og:type",
-      content: "website",
-    },
-
-    {
-      name: "twitter:card",
-      content: "summary_large_image",
-    },
-
-    {
-      name: "twitter:title",
-      content: "Vehloom | Where Creativity Blooms",
-    },
-
-    {
-      name: "twitter:description",
-      content:
-        "The social platform built for AI artists and creators.",
-    },
-  ],
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Vehloom — Where Creativity Blooms" },
+      {
+        name: "description",
+        content:
+          "Vehloom is the social platform built for AI artists and creators. Share, discover and grow your creative community. Join the waitlist.",
+      },
+      { name: "author", content: "Vehloom" },
+      { property: "og:title", content: "Vehloom — Where Creativity Blooms" },
+      {
+        property: "og:description",
+        content: "The social platform built for AI artists and creators.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Vehloom - Where Creativity Blooms" },
+      {
+        name: "twitter:description",
+        content: "The social platform built for AI artists and creators.",
+      },
+    ],
+    links: [
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
