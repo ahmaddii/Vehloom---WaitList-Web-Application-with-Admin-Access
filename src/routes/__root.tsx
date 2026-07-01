@@ -114,16 +114,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     },
 
     {
-      property: "og:image",
-      content: "https://vehloom.vercel.app/og-image.png",
-    },
-    
-    {
-      name: "twitter:image",
-      content: "https://vehloom.vercel.app/og-image.png",
-    },
-
-    {
       name: "twitter:card",
       content: "summary_large_image",
     },
