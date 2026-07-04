@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")(({
         content:
           "The social platform built for AI artists and creators. Share AI artwork, discover creators, and join a global creative community. Get early access.",
       },
-      { property: "og:title", content: "Vehloom — Where Creativity Blooms" },
+      { property: "og:title", content: "Vehloom for AI Artists - Creativity Blooms" },
       {
         property: "og:description",
         content:
