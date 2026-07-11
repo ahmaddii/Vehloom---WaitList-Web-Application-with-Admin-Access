@@ -112,7 +112,7 @@ export function Hero() {
                 <div className="text-left">
                   <p className="text-sm font-bold text-foreground">You're officially on the list! 🎉</p>
                   <p className="mt-0.5 text-xs text-muted-foreground">
-                    We'll email you the moment Vehloom opens its doors. Stay creative.
+                    We'll Email you the moment Vehloom opens its doors. Stay creative.
                   </p>
                 </div>
               </div>
