@@ -17,7 +17,6 @@ function AdminPage() {
   const [authenticated, setAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [entries, setEntries] = useState<WaitlistEntry[]>([]);
-  const [totalCount, setTotalCount] = useState<number>(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -36,31 +35,16 @@ function AdminPage() {
 
   const fetchEntries = async () => {
     setLoading(true);
-    
-    // Fetch the exact total count first
-    const { count, error: countError } = await supabase
-      .from("waitlist")
-      .select("*", { count: "exact", head: true });
-      
-    if (!countError && count !== null) {
-      setTotalCount(count);
-    }
-
-    // Fetch the latest 1000 entries (Supabase default limit)
     const { data, error } = await supabase
       .from("waitlist")
       .select("*")
-      .order("created_at", { ascending: false })
-      .limit(1000);
+      .order("created_at", { ascending: false });
     
     if (error) {
       console.error(error);
       setError("Failed to fetch waitlist entries");
     } else {
       setEntries(data || []);
-      if (countError || count === null) {
-        setTotalCount(data?.length || 0);
-      }
     }
     setLoading(false);
   };
@@ -77,7 +61,6 @@ function AdminPage() {
     setAuthenticated(false);
     setPassword("");
     setEntries([]);
-    setTotalCount(0);
   };
 
   if (!authenticated) {
@@ -146,12 +129,7 @@ function AdminPage() {
           <div className="flex items-center gap-3 border-b border-border px-6 py-4">
             <Users className="h-5 w-5 text-muted-foreground" />
             <h2 className="font-medium text-foreground">
-              Total Signed Up: <span className="font-bold text-primary">{totalCount.toLocaleString()}</span>
-              {totalCount > entries.length && (
-                <span className="ml-2 text-xs text-muted-foreground">
-                  (Showing latest {entries.length})
-                </span>
-              )}
+              Total Signed Up: <span className="font-bold text-primary">{entries.length}</span>
             </h2>
           </div>
 
