@@ -1,0 +1,31 @@
+name: Speclane AI QA Pipeline
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  test-and-heal:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Playwright tests
+        id: test
+        run: npx playwright test
+      
+      - name: Trigger Speclane AI Self-Healing
+        if: failure()
+        run: |
+          curl -X POST "http://localhost:3001/api/self-healing/webhook?projectId=453035a2-59f1-4000-b74d-9d2d4d9f225d" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "branch": "${{ github.ref_name }}",
+            "commitSha": "${{ github.sha }}",
+            "workflowName": "${{ github.workflow }}",
+            "actor": "${{ github.actor }}",
+            "status": "failed"
+          }'
