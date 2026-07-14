@@ -13,7 +13,7 @@ This project is configured with end-to-end testing using Playwright, integrated 
 ### Configuration Files
 - **`playwright.config.ts`** - Playwright test configuration
   - Automatically starts Vite dev server before tests (`npm run dev`)
-  - Configures base URL: `http://localhost:5173`
+  - Configures base URL: `http://localhost:8081`
   - Runs tests in Chromium, Firefox, and WebKit browsers
   - Collects traces on failed tests for debugging
   - Retries failed tests in CI environment
@@ -169,7 +169,7 @@ Edit `.github/workflows/playwright.yml` to:
 
 ### Tests hang or timeout
 - Ensure Vite dev server can start: `npm run dev`
-- Check if port 5173 is available
+- Check if port 8081 is available
 - Increase `webServer.timeout` in `playwright.config.ts`
 
 ### "Cannot find browsers" error

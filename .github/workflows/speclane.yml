@@ -26,6 +26,8 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
+        env:
+          PORT: '8081'
         run: npx playwright test
 
       - name: Upload Playwright Report
