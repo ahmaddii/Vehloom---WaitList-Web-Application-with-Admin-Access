@@ -31,14 +31,16 @@ const cols = [
       { label: "Features", href: "#features" },
       { label: "Waitlist", href: "#waitlist" },
       { label: "FAQ", href: "#faq" },
+      { label: "Help Center", href: "/help-center" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About", href: "#" },
-      { label: "Privacy", href: "#" },
-      { label: "Terms", href: "#" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+      { label: "Report a Problem", href: "/report-problem" },
     ],
   },
   {
