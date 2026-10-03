@@ -38,3 +38,14 @@ export interface DashboardStats {
   in_progress_count: number;
   resolved_count: number;
 }
+
+export interface Report {
+  id: string;
+  reporter_id: string | null;
+  artwork_id: string | null;
+  reported_user_id: string | null;
+  reason: string;
+  details: string;
+  status: string;
+  created_at: string;
+}
